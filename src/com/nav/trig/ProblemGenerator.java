@@ -11,6 +11,22 @@ public class ProblemGenerator
 	private static String[] functions;
 	private static String[] possibleValues;
 	
+	private static final String[] radianValues = {
+		"0 pi",   "pi / 2",  "pi",       "3 pi / 2", "2 pi",
+		"pi / 6", "2 pi / 3","7 pi / 6", "5 pi / 3", "13 pi / 6",
+		"pi / 4", "3 pi / 4","5 pi / 4", "7 pi / 4", "9 pi / 4,",
+		"pi / 3", "5 pi / 6","4 pi / 3", "11 pi / 6","7 pi / 3"
+	};
+	
+	private static boolean isNumeric(String str)
+	{
+	    for (char c : str.toCharArray())
+	    {
+	        if (!Character.isDigit(c)) return false;
+	    }
+	    return true;
+	}
+	
 	public static String genProblem(boolean radian,boolean degree,boolean basic,boolean invFunc)
 	{
 		/*
@@ -37,7 +53,7 @@ public class ProblemGenerator
 		if(radian && degree)
 		{
 			//The Possible Values for radians + degrees
-			possibleValues = new String[]{"0","30","45","60","0 pi","pi / 6","pi / 4","pi / 3"};
+			possibleValues = new String[]{"0","30","45","60","0","1","2","3"};
 		}
 		
 		else
@@ -45,7 +61,7 @@ public class ProblemGenerator
 			//If only raidans
 			if(radian)
 			{
-				possibleValues = new String[]{"0 pi","pi / 6","pi / 4","pi / 3"};
+				possibleValues = new String[]{"000","001","002","003"};
 			}
 			
 			//If Only Degrees
@@ -59,6 +75,32 @@ public class ProblemGenerator
 		Random r = new Random();
 		String currentFunction = functions[r.nextInt(functions.length)];
 		String currentValue = possibleValues[r.nextInt(possibleValues.length)];	
+		
+		
+		//Add Support for angle values outside of the first quadrant
+		if(!basic)
+		{
+			int quadrant = r.nextInt(5)+1;
+						
+			//If this is a radian value
+			if(currentValue.length() == 3)
+			{
+				currentValue = radianValues[5*(Integer.valueOf(currentValue))+quadrant-1];
+			}
+			
+			//It is a degree
+			else
+			{
+				//Change the Quadrant Value
+				int newValue = Integer.valueOf(currentValue);
+				newValue+=(quadrant-1)*90;
+				currentValue = String.valueOf(newValue);
+			}
+		}
+		else
+		{
+			currentValue = radianValues[Integer.valueOf(currentValue)];
+		}
 		
 		return currentFunction + " "+currentValue;
 	}

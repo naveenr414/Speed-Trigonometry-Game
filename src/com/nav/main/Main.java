@@ -35,6 +35,6 @@ public class Main
 		frame.setVisible(true);
 		
 		//Testing
-		System.out.println(ProblemGenerator.genProblem(true, false, false, false));
+		System.out.println(ProblemGenerator.genProblem(true, true, false, false));
 	}
 }
