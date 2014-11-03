@@ -3,6 +3,8 @@ package com.nav.main;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.nav.trig.ProblemGenerator;
+
 public class Main 
 {
 	/*
@@ -30,6 +32,9 @@ public class Main
 		panel = new JPanel();
 		frame.add(panel);
 		
-		frame.setVisible(true);		
+		frame.setVisible(true);
+		
+		//Testing
+		System.out.println(ProblemGenerator.genProblem(true, false, false, false));
 	}
 }
