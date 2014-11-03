@@ -17,16 +17,7 @@ public class ProblemGenerator
 		"pi / 4", "3 pi / 4","5 pi / 4", "7 pi / 4", "9 pi / 4,",
 		"pi / 3", "5 pi / 6","4 pi / 3", "11 pi / 6","7 pi / 3"
 	};
-	
-	private static boolean isNumeric(String str)
-	{
-	    for (char c : str.toCharArray())
-	    {
-	        if (!Character.isDigit(c)) return false;
-	    }
-	    return true;
-	}
-	
+
 	public static String genProblem(boolean radian,boolean degree,boolean basic,boolean invFunc)
 	{
 		/*

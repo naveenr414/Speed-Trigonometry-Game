@@ -3,6 +3,7 @@ package com.nav.main;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.nav.latex.ProblemToLatex;
 import com.nav.trig.ProblemGenerator;
 
 public class Main 
@@ -35,6 +36,6 @@ public class Main
 		frame.setVisible(true);
 		
 		//Testing
-		System.out.println(ProblemGenerator.genProblem(true, true, false, false));
+		System.out.println(ProblemToLatex.problemToLatex(ProblemGenerator.genProblem(true, true, false, false)));
 	}
 }
