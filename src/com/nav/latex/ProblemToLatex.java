@@ -13,13 +13,13 @@ public class ProblemToLatex
 		sign = "\\" + sign;
 		
 		//Convert Pi
-		value = value.replaceAll("pi", "\\pi");
+		value = value.replaceAll("pi", " \\pi");
 		
 		//Convert Fractions
 		if(value.contains("/"))
 		{
 			String[] valueParts  = value.split("/");
-			value = "{frac}{"+valueParts[0]+"}{"+valueParts[1]+"}";
+			value = "\\frac {"+valueParts[0]+"}{"+valueParts[1]+"}";
 		}
 		return sign+" "+value;
 		

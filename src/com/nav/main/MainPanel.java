@@ -31,7 +31,7 @@ public class MainPanel extends JPanel
 		String problem = ProblemGenerator.genProblem(true,true, false, true);
 		answer = ProblemSolver.solveProblem(problem);
 		String latex = ProblemToLatex.problemToLatex(problem);
-		System.out.println(problem + " "+latex);
+		System.out.println(answer + " "+latex);
 		image = genLatex(latex);
 	}
 	

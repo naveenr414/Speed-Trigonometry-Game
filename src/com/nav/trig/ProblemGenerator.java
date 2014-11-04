@@ -14,8 +14,8 @@ public class ProblemGenerator
 	private static final String[] radianValues = {
 		"0pi",   "pi/2",  "pi",       "3pi/2", "2pi",
 		"pi/6", "2pi/3","7pi/6", "5pi/3", "13pi/6",
-		"pi/4", "3pi/4","5pi/4", "7pi/4", "9pi/4,",
-		"pi/3", "5 pi / 6","4 pi / 3", "11 pi / 6","7 pi / 3"
+		"pi/4", "3pi/4","5pi/4", "7pi/4", "9pi/4",
+		"pi/3", "5pi/6","4pi/3", "11pi/6","7pi/3"
 	};
 
 	public static String genProblem(boolean radian,boolean degree,boolean basic,boolean invFunc)

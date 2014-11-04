@@ -1,22 +1,10 @@
 package com.nav.main;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.image.BufferedImage;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import org.scilab.forge.jlatexmath.TeXConstants;
-import org.scilab.forge.jlatexmath.TeXFormula;
-import org.scilab.forge.jlatexmath.TeXIcon;
-
-import com.nav.latex.ProblemToLatex;
-import com.nav.trig.ProblemGenerator;
-import com.nav.trig.ProblemSolver;
+import javax.swing.JTextField;
 
 public class Main 
 {
@@ -28,6 +16,9 @@ public class Main
 	public static JFrame frame;
 	private static JPanel panel;
 	private static JButton button;
+	private static JButton submit;
+	private static JTextField textField;
+	private static JLabel correct;
 	
 	//Screen Dimensions
 	public static int width = 800;
@@ -43,9 +34,11 @@ public class Main
 		frame.setLocationRelativeTo(null);
 		
 		//Create the Button
-		button = new JButton("Click Me");
+		button = new JButton("New Problem");
 		button.addActionListener(new MainListener());
 		
+		correct = new JLabel("Is Correct");
+		correct.setText("BOB");
 		//Create a Panel for Buttons
 		panel = new MainPanel();
 		panel.add(button);
