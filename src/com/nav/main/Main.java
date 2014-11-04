@@ -16,9 +16,9 @@ public class Main
 	public static JFrame frame;
 	private static JPanel panel;
 	private static JButton button;
-	private static JButton submit;
-	private static JTextField textField;
-	private static JLabel correct;
+	public static JButton submit;
+	public static JTextField textField;
+	public static JLabel correct;
 	
 	//Screen Dimensions
 	public static int width = 800;
@@ -37,11 +37,23 @@ public class Main
 		button = new JButton("New Problem");
 		button.addActionListener(new MainListener());
 		
+		JLabel info = new JLabel("3/2 = 0.9 2/2 = 0.7");
+		info.setLayout(null);
+		
+		submit = new JButton("Submit");
+		submit.addActionListener(new Submit());
+		textField = new JTextField(5);
+		textField.setSize(100, 50);
 		correct = new JLabel("Is Correct");
 		correct.setText("BOB");
+		correct.setLocation(500, 500);
 		//Create a Panel for Buttons
 		panel = new MainPanel();
 		panel.add(button);
+		panel.add(info);
+		panel.add(submit);
+		panel.add(textField);
+		panel.add(correct);
 		frame.add(panel);
 		frame.setVisible(true);
 		

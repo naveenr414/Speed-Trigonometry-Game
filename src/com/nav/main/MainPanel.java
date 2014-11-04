@@ -20,7 +20,7 @@ import com.nav.trig.ProblemSolver;
 public class MainPanel extends JPanel
 {
 	private static BufferedImage image;
-	private static float answer;
+	public static float answer;
 	public MainPanel()
 	{
 		genRandom();

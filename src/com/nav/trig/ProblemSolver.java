@@ -50,17 +50,17 @@ public class ProblemSolver
 			
 			else if(operation.equalsIgnoreCase("csc"))
 			{
-				answer =  (float) Math.sin(leading*Math.PI/divisor);
+				answer =  1/(float) Math.sin(leading*Math.PI/divisor);
 			}
 			
 			else if(operation.equalsIgnoreCase("sec"))
 			{
-				answer =  (float) Math.cos(leading*Math.PI/divisor);
+				answer =  1/(float) Math.cos(leading*Math.PI/divisor);
 			}
 			
 			else if(operation.equalsIgnoreCase("cot"))
 			{
-				answer =  (float) Math.tan(leading*Math.PI/divisor);
+				answer =  1/(float) Math.tan(leading*Math.PI/divisor);
 			}
 			return (float)Math.round(answer * 10) / 10;
 		}
@@ -68,41 +68,43 @@ public class ProblemSolver
 		//Degree Problem
 		else
 		{
+			float answer = 0;
 			//The Input is on the right hand side (30 in Sin 30)
 			int value = Integer.valueOf(code.split(" ")[1]);
 					
 			if(operation.equalsIgnoreCase("sin"))
 			{
-				return (float) Math.sin(Math.toRadians(value));
+				answer =  (float) Math.sin(Math.toRadians(value));
 			}
 			
 			else if(operation.equalsIgnoreCase("cos"))
 			{
-				return (float) Math.cos(Math.toRadians(value));
+				answer =  (float) Math.cos(Math.toRadians(value));
 			}
 			
 			else if(operation.equalsIgnoreCase("tan"))
 			{
-				return (float) Math.tan(Math.toRadians(value));
+				answer = (float) Math.tan(Math.toRadians(value));
 			}
 			
 			else if(operation.equalsIgnoreCase("csc"))
 			{
-				return (float) Math.sin(Math.toRadians(value));
+				answer= 1/(float) Math.sin(Math.toRadians(value));
 			}
 			
 			else if(operation.equalsIgnoreCase("sec"))
 			{
-				return (float) Math.cos(Math.toRadians(value));
+				answer= 1/(float) Math.cos(Math.toRadians(value));
 			}
 			
 			else if(operation.equalsIgnoreCase("cot"))
 			{
-				return (float) Math.tan(Math.toRadians(value));
+				answer= 1/(float) Math.tan(Math.toRadians(value));
 			}
+			
+			return (float)Math.round(answer * 10) / 10;
 			
 		}
 		
-		return 0;
 	}
 }
