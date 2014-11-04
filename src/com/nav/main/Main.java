@@ -25,7 +25,7 @@ public class Main
 	 */
 	
 	//Main Frame
-	private static JFrame frame;
+	public static JFrame frame;
 	private static JPanel panel;
 	private static JButton button;
 	
@@ -44,45 +44,24 @@ public class Main
 		
 		//Create the Button
 		button = new JButton("Click Me");
+		button.addActionListener(new MainFrame());
 		
 		//Create a Panel for Buttons
-		panel = new JPanel();
+		panel = new MainPanel();
 		panel.add(button);
 		frame.add(panel);
 		frame.setVisible(true);
 		
 		//Create the Problem
-		String problem = ProblemGenerator.genProblem(false, true, true, false);
-		String latex = ProblemToLatex.problemToLatex(problem);
+	//	String problem = ProblemGenerator.genProblem(false, true, true, false);
+	//	String latex = ProblemToLatex.problemToLatex(problem);
 		
 		//Draw the Button
-		genLatex(latex);
+		//genLatex(latex);
 		
 		//Refresh the Screen
-		frame.setVisible(true);
+	//	frame.setVisible(true);
 	}
 	
-	public static void genLatex(String latex)
-	{
-		TeXFormula formula = new TeXFormula(latex);
-		
-		// render the formla to an icon of the same size as the formula.
-		TeXIcon icon = formula
-				.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
-		
-		// insert a border 
-		icon.setInsets(new Insets(5, 5, 5, 5));
 
-		// now create an actual image of the rendered equation
-		BufferedImage image = new BufferedImage(icon.getIconWidth(),
-				icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
-		Graphics2D g2 = image.createGraphics();
-		g2.setColor(Color.white);
-		g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
-		JLabel jl = new JLabel();
-		jl.setForeground(new Color(0, 0, 0));
-		icon.paintIcon(jl, g2, 0, 0);
-		
-		panel.getGraphics().drawImage(image, 0, 0, null);
-	}
 }

@@ -1,19 +1,25 @@
 package com.nav.main;
 
-import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainFrame extends JFrame
+import com.nav.latex.ProblemToLatex;
+import com.nav.trig.ProblemGenerator;
+
+public class MainFrame implements ActionListener
 {
-	public MainFrame(int width,int height)
+
+	public void actionPerformed(ActionEvent arg0) 
 	{
-		setSize(width,height);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
-		setLocationRelativeTo(null);
-	}
-	
-	public void render()
-	{
+		//Create the Problem
+		String problem = ProblemGenerator.genProblem(false, true, true, false);
+		String latex = ProblemToLatex.problemToLatex(problem);
 		
+		//Draw the Button
+		MainPanel.newImage(latex);
+		
+		//Refresh the Screen
+	//	Main.frame.setVisible(true);	
 	}
+
 }
