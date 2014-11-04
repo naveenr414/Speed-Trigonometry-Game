@@ -90,7 +90,10 @@ public class ProblemGenerator
 		}
 		else
 		{
-			currentValue = radianValues[Integer.valueOf(currentValue)];
+			if(currentValue.length() == 3)
+			{
+				currentValue = radianValues[Integer.valueOf(currentValue)];
+			}
 		}
 		
 		return currentFunction + " "+currentValue;

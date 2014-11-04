@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,6 +16,7 @@ import org.scilab.forge.jlatexmath.TeXIcon;
 
 import com.nav.latex.ProblemToLatex;
 import com.nav.trig.ProblemGenerator;
+import com.nav.trig.ProblemSolver;
 
 public class Main 
 {
@@ -25,6 +27,7 @@ public class Main
 	//Main Frame
 	private static JFrame frame;
 	private static JPanel panel;
+	private static JButton button;
 	
 	//Screen Dimensions
 	public static int width = 800;
@@ -39,15 +42,23 @@ public class Main
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		
+		//Create the Button
+		button = new JButton("Click Me");
+		
 		//Create a Panel for Buttons
 		panel = new JPanel();
+		panel.add(button);
 		frame.add(panel);
-		
-		String latex = ProblemToLatex.problemToLatex(ProblemGenerator.genProblem(true, true, false, false));
-		
-		
 		frame.setVisible(true);
+		
+		//Create the Problem
+		String problem = ProblemGenerator.genProblem(false, true, true, false);
+		String latex = ProblemToLatex.problemToLatex(problem);
+		
+		//Draw the Button
 		genLatex(latex);
+		
+		//Refresh the Screen
 		frame.setVisible(true);
 	}
 	
