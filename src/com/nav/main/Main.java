@@ -44,17 +44,13 @@ public class Main
 		
 		//Create the Button
 		button = new JButton("Click Me");
-		button.addActionListener(new MainFrame());
+		button.addActionListener(new MainListener());
 		
 		//Create a Panel for Buttons
 		panel = new MainPanel();
 		panel.add(button);
 		frame.add(panel);
 		frame.setVisible(true);
-		
-		//Create the Problem
-	//	String problem = ProblemGenerator.genProblem(false, true, true, false);
-	//	String latex = ProblemToLatex.problemToLatex(problem);
 		
 		//Draw the Button
 		//genLatex(latex);

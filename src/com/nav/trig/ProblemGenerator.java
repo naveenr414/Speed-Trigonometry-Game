@@ -12,10 +12,10 @@ public class ProblemGenerator
 	private static String[] possibleValues;
 	
 	private static final String[] radianValues = {
-		"0 pi",   "pi / 2",  "pi",       "3 pi / 2", "2 pi",
-		"pi / 6", "2 pi / 3","7 pi / 6", "5 pi / 3", "13 pi / 6",
-		"pi / 4", "3 pi / 4","5 pi / 4", "7 pi / 4", "9 pi / 4,",
-		"pi / 3", "5 pi / 6","4 pi / 3", "11 pi / 6","7 pi / 3"
+		"0pi",   "pi/2",  "pi",       "3pi/2", "2pi",
+		"pi/6", "2pi/3","7pi/6", "5pi/3", "13pi/6",
+		"pi/4", "3pi/4","5pi/4", "7pi/4", "9pi/4,",
+		"pi/3", "5 pi / 6","4 pi / 3", "11 pi / 6","7 pi / 3"
 	};
 
 	public static String genProblem(boolean radian,boolean degree,boolean basic,boolean invFunc)
@@ -44,7 +44,7 @@ public class ProblemGenerator
 		if(radian && degree)
 		{
 			//The Possible Values for radians + degrees
-			possibleValues = new String[]{"0","30","45","60","0","1","2","3"};
+			possibleValues = new String[]{"0","30","45","60","000","001","002","003"};
 		}
 		
 		else

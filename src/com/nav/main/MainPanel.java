@@ -13,27 +13,34 @@ import org.scilab.forge.jlatexmath.TeXConstants;
 import org.scilab.forge.jlatexmath.TeXFormula;
 import org.scilab.forge.jlatexmath.TeXIcon;
 
+import com.nav.latex.ProblemToLatex;
+import com.nav.trig.ProblemGenerator;
+import com.nav.trig.ProblemSolver;
+
 public class MainPanel extends JPanel
 {
 	private static BufferedImage image;
-	private static String latex;
+	private static float answer;
 	public MainPanel()
 	{
-		latex = "\\sin 60";
-		image = genLatex("\\sin 60");
+		genRandom();
 	}
 	
-	public static void newImage(String latex)
+	public static void genRandom()
 	{
+		String problem = ProblemGenerator.genProblem(true,true, false, true);
+		answer = ProblemSolver.solveProblem(problem);
+		String latex = ProblemToLatex.problemToLatex(problem);
+		System.out.println(problem + " "+latex);
 		image = genLatex(latex);
-		MainPanel.latex = latex;
 	}
-	protected void paintComponent(Graphics g) {
-		System.out.println("BOB");
+	
+	protected void paintComponent(Graphics g) 
+	{
 		    super.paintComponent(g);  
 		    g.setColor(Color.WHITE);  
 		    g.fillRect(0,0,Main.width,Main.height);  
-		    g.drawImage(genLatex(latex), 50, 0, null);
+		    g.drawImage(image, 50, 0, null);
 		    repaint();
 		    
 	}
